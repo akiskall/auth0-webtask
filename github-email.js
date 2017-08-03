@@ -7,7 +7,7 @@ module.exports = function(ctx, done) {
 
     //Make sure that the request we got is a proper 'Github Issue Event payload'
     if (!ctx.data.hasOwnProperty('repository') || !ctx.data.hasOwnProperty('action') || !ctx.data.hasOwnProperty('issue')) {
-        done(null, 'The request doesn\'t seem like a proper Issue Event payload.');
+        done(true, {data: 'The request doesn\'t seem like a proper Issue Event payload.'});
     }
 
     //Let's read the needed info from github's webhook payload
@@ -52,10 +52,10 @@ module.exports = function(ctx, done) {
     smtpTransport.sendMail(mailOptions, function(error, response) {
         if (error) {
             console.log(error);
-            done(null, error);
+            done(true, error);
         } else {
             console.log('OK!');
-            done(null, response);
+            done(false, response);
         }
     });
 };
