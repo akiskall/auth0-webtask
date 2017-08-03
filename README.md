@@ -8,6 +8,10 @@ This webtask however can help someone to keep a list of recipients and forward t
 
 This is done using GMail as the email provider.
 
+The email looks like this:
+
+![Alt text](/email.jpg?raw=true "Email notification")
+
 If you want to try it, get the code and create a webtask like this:
 
 ```
